@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="flex flex-col gap-10 mb-12 md:grid md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-2">
-            <Logo size="lg" iconColor="#d9f705" textColor="#fff" className="mb-4" />
+            <Logo size="lg" className="mb-4" />
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs mb-5">
               Moda fitness feminina brasileira. Energia, movimento e muito estilo para o seu dia a dia.
             </p>
