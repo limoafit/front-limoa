@@ -68,7 +68,7 @@ export default function Header() {
 
             {/* Logo */}
             <Link href="/" className="flex items-center">
-              <Logo size="md" />
+              <Logo size="md" iconColor="#f771cc" textColor="#9c71f7" />
             </Link>
 
             {/* Nav — desktop only */}
