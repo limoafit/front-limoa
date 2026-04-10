@@ -28,21 +28,19 @@ export default function ProductCard({ product }: Props) {
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-rosa/15 to-roxo/15 flex items-center justify-center">
-            <span className="font-display text-4xl font-black text-gradient opacity-30">LF</span>
+            <span className="font-display text-3xl font-black text-gradient opacity-30">LF</span>
           </div>
         )}
-
-        {/* Quick buy pill */}
-        <div className="absolute bottom-3 inset-x-3 bg-black text-white text-xs font-black uppercase tracking-widest py-2.5 rounded-full text-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+        {/* Quick buy — tap on mobile, hover on desktop */}
+        <div className="absolute bottom-2 inset-x-2 bg-black text-white text-[10px] font-black uppercase tracking-widest py-2.5 rounded-full text-center opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300 md:bottom-3 md:inset-x-3">
           Comprar
         </div>
       </div>
 
-      {/* Info */}
-      <p className="font-semibold text-gray-900 text-sm leading-snug mb-1 group-hover:text-roxo transition-colors line-clamp-2">
+      <p className="font-semibold text-gray-900 text-xs leading-snug mb-1 line-clamp-2 group-hover:text-roxo transition-colors md:text-sm">
         {product.title}
       </p>
-      <p className="font-black text-base text-black">{price}</p>
+      <p className="font-black text-sm text-black md:text-base">{price}</p>
     </Link>
   )
 }
