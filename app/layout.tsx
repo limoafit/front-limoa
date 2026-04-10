@@ -27,6 +27,16 @@ export const metadata: Metadata = {
   description:
     'Moda fitness feminina vibrante e estilosa. Leggings, tops, conjuntos e muito mais para você arrasar nos treinos.',
   keywords: ['moda fitness', 'roupa de academia', 'legging', 'top fitness', 'conjunto fitness', 'limoafit'],
+  icons: {
+    icon: [
+      { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: '/favicon/apple-touch-icon.png',
+    other: [
+      { rel: 'manifest', url: '/favicon/site.webmanifest' },
+    ],
+  },
   openGraph: {
     title: 'Limoá Fit — Moda Fitness Feminina',
     description: 'Moda fitness feminina vibrante e estilosa.',
