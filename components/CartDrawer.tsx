@@ -3,14 +3,14 @@
 import { X, ShoppingBag, Plus, Minus, Trash2 } from 'lucide-react'
 import Image from 'next/image'
 import { useCartStore } from '@/store/cartStore'
-import { formatPrice } from '@/lib/shopify'
+import { formatPrice, fixCheckoutUrl } from '@/lib/shopify'
 
 export default function CartDrawer() {
   const { cart, isOpen, isLoading, closeCart, updateItem, removeItem } = useCartStore()
 
-  const lines      = cart?.lines.edges.map((e) => e.node) ?? []
-  const subtotal   = cart?.cost.subtotalAmount
-  const checkoutUrl = cart?.checkoutUrl
+  const lines       = cart?.lines.edges.map((e) => e.node) ?? []
+  const subtotal    = cart?.cost.subtotalAmount
+  const checkoutUrl = cart?.checkoutUrl ? fixCheckoutUrl(cart.checkoutUrl) : undefined
 
   return (
     <>

@@ -196,3 +196,20 @@ export function formatPrice(amount: string, currencyCode = 'BRL'): string {
     currency: currencyCode,
   }).format(parseFloat(amount))
 }
+
+/**
+ * A Shopify pode gerar o checkoutUrl com o domínio customizado (limoafit.com),
+ * que agora aponta para o Next.js. Forçamos o domínio .myshopify.com para que
+ * o checkout abra no servidor correto da Shopify.
+ */
+export function fixCheckoutUrl(url: string): string {
+  const domain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN
+  if (!domain) return url
+  try {
+    const parsed = new URL(url)
+    parsed.hostname = domain
+    return parsed.toString()
+  } catch {
+    return url
+  }
+}
