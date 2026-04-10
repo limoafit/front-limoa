@@ -1,5 +1,5 @@
 const items = [
-  'NOVA COLEÇÃO 2025',
+  'NOVA COLEÇÃO 2026',
   'FRETE GRÁTIS ACIMA DE R$299',
   'TROCA GRÁTIS',
   'MODA FITNESS FEMININA',

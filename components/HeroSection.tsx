@@ -15,7 +15,7 @@ export default function HeroSection() {
         {/* Badge */}
         <span className="inline-flex items-center gap-2 self-start bg-black text-[#d9f705] text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full mb-6">
           <span className="w-1.5 h-1.5 rounded-full bg-[#d9f705]" />
-          Nova Coleção 2025
+          Nova Coleção 2026
         </span>
 
         {/* Headline — full width on mobile */}

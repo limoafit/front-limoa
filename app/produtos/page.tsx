@@ -28,7 +28,7 @@ export default async function ProdutosPage() {
           <p className="text-xs font-black uppercase tracking-[0.3em] text-black/40 mb-4">— Limoá Fit</p>
           <h1 className="font-display font-black text-black leading-none text-6xl md:text-8xl">
             COLEÇÃO<br />
-            <span style={{ WebkitTextStroke: '2px #f771cc', color: 'transparent' }}>2025</span>
+            <span style={{ WebkitTextStroke: '2px #f771cc', color: 'transparent' }}>2026</span>
           </h1>
         </div>
       </div>
