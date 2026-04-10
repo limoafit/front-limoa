@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 import './globals.css'
 import Header from '@/components/Header'
 import CartDrawer from '@/components/CartDrawer'
+import WhatsAppButton from '@/components/WhatsAppButton'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Suspense>
         <main>{children}</main>
         <CartDrawer />
+        <WhatsAppButton />
       </body>
     </html>
   )
