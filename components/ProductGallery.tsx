@@ -1,16 +1,24 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { ShopifyImage } from '@/types'
 
 interface Props {
   images: ShopifyImage[]
   title: string
+  activeUrl?: string | null  // controlled externally (e.g. color selection)
 }
 
-export default function ProductGallery({ images, title }: Props) {
+export default function ProductGallery({ images, title, activeUrl }: Props) {
   const [active, setActive] = useState(0)
+
+  // When parent changes activeUrl (color selected), jump to that image
+  useEffect(() => {
+    if (!activeUrl) return
+    const idx = images.findIndex((img) => img.url === activeUrl)
+    if (idx !== -1) setActive(idx)
+  }, [activeUrl, images])
 
   if (images.length === 0) {
     return (
@@ -29,7 +37,7 @@ export default function ProductGallery({ images, title }: Props) {
           alt={images[active].altText ?? title}
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
-          className="object-cover"
+          className="object-cover transition-opacity duration-200"
           priority
         />
       </div>

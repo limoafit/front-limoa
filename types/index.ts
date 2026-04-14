@@ -17,6 +17,12 @@ export interface ShopifyProductVariant {
     name: string
     value: string
   }[]
+  image?: {
+    url: string
+    altText: string | null
+    width: number
+    height: number
+  } | null
 }
 
 export interface ShopifyProduct {

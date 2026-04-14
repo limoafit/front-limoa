@@ -59,6 +59,7 @@ const PRODUCT_FRAGMENT = `
           availableForSale
           price { amount currencyCode }
           selectedOptions { name value }
+          image { url altText width height }
         }
       }
     }

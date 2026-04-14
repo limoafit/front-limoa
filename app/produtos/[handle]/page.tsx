@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { getProductByHandle, getProducts, formatPrice } from '@/lib/shopify'
 import { ShopifyProduct } from '@/types'
-import ProductGallery from '@/components/ProductGallery'
-import AddToCartButton from '@/components/AddToCartButton'
+import ProductDetail from '@/components/ProductDetail'
 import Footer from '@/components/Footer'
 
 interface Props {
@@ -46,17 +45,11 @@ export default async function ProductPage({ params }: Props) {
     return <MockProductPage handle={params.handle} error={shopifyError} />
   }
 
-  const images = product.images.edges.map((e) => e.node)
+  const images   = product.images.edges.map((e) => e.node)
   const variants = product.variants.edges.map((e) => e.node)
-  const sizeVariants = variants.filter((v) =>
-    v.selectedOptions.some((o) =>
-      o.name.toLowerCase() === 'tamanho' || o.name.toLowerCase() === 'size'
-    )
-  )
-
-  const price = formatPrice(
+  const price    = formatPrice(
     product.priceRange.minVariantPrice.amount,
-    product.priceRange.minVariantPrice.currencyCode
+    product.priceRange.minVariantPrice.currencyCode,
   )
 
   return (
@@ -72,56 +65,13 @@ export default async function ProductPage({ params }: Props) {
             <span className="text-black">{product.title}</span>
           </nav>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20">
-            {/* Gallery */}
-            <ProductGallery images={images} title={product.title} />
-
-            {/* Info */}
-            <div className="flex flex-col gap-8">
-              <div>
-                <p className="text-xs font-black uppercase tracking-[0.3em] text-roxo mb-3">
-                  Limoá Fit
-                </p>
-                <h1 className="font-display font-black text-4xl md:text-5xl text-black leading-tight mb-6">
-                  {product.title}
-                </h1>
-                <div className="flex items-baseline gap-3">
-                  <span className="font-black text-3xl text-black">{price}</span>
-                  <span className="text-sm text-gray-400">ou 12x sem juros</span>
-                </div>
-              </div>
-
-              {/* Add to cart */}
-              <AddToCartButton variants={variants} sizeVariants={sizeVariants} />
-
-              {/* Description */}
-              {product.descriptionHtml && (
-                <div className="border-t pt-8">
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-gray-400 mb-4">
-                    Descrição
-                  </p>
-                  <div
-                    className="text-gray-600 text-sm leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-                  />
-                </div>
-              )}
-
-              {/* Benefits */}
-              <div className="border-t pt-8 grid grid-cols-1 gap-3">
-                {[
-                  { icon: '🚚', text: 'Frete grátis acima de R$ 299' },
-                  { icon: '↩️', text: 'Troca grátis em até 30 dias' },
-                  { icon: '💳', text: 'Até 12x sem juros' },
-                ].map((b) => (
-                  <div key={b.text} className="flex items-center gap-3 text-sm font-medium text-gray-600">
-                    <span>{b.icon}</span>
-                    <span>{b.text}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <ProductDetail
+            images={images}
+            variants={variants}
+            title={product.title}
+            price={price}
+            descriptionHtml={product.descriptionHtml}
+          />
         </div>
       </div>
       <Footer />
